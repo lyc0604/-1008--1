@@ -5,64 +5,253 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>網路爭議（假）訊息及深偽影音案件處理 SOP</title>
 <style>
-:root{--c:#059669;--soft:#ecfdf5;--bd:#6ee7b7}
-*{box-sizing:border-box}
-body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;background:#f3f4f6;color:#1f2937;line-height:1.6}
-.wrap{max-width:900px;margin:0 auto;padding:16px}
-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
-h1{font-size:20px;margin:0}
-.sub{font-size:13px;color:#6b7280}
-nav{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
-button{font-family:inherit;cursor:pointer}
-.tab{padding:8px 16px;border:1px solid #d1d5db;border-radius:8px;background:#fff;font-size:14px}
-.tab.on{color:#fff;border-color:transparent}
-.printbtn{padding:8px 14px;border-radius:8px;border:1px solid #374151;background:#374151;color:#fff;font-size:14px}
-.panel{display:none}.panel.on{display:block}
-.banner{border:2px solid var(--bd);background:var(--soft);border-radius:12px;padding:12px 16px;margin-bottom:12px}
-.banner b{font-size:18px}
-.modes{display:flex;gap:8px;margin-bottom:12px}
-.mode{padding:6px 12px;border:1px solid #d1d5db;border-radius:8px;background:#fff;font-size:13px}
-.mode.on{background:var(--c);color:#fff;border-color:var(--c)}
-.pill{display:table;margin:0 auto;padding:2px 16px;border-radius:99px;background:var(--c);color:#fff;font-size:13px}
-.arrow{text-align:center;color:var(--c);font-size:22px;line-height:1.1;margin:2px 0}
-.step-h{width:100%;text-align:left;border:2px solid var(--bd);background:var(--soft);border-radius:12px;padding:10px 12px;display:flex;gap:12px;align-items:center}
-.num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--c);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
-.step-h .t{font-weight:600}.step-h .s{font-size:13px;opacity:.8}
-.detail{display:none;margin:8px 0 0 18px;padding-left:14px;border-left:4px solid #e5e7eb}
-.step.open .detail,.full .detail{display:block}
-.branches{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
-.br{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:8px 10px;font-size:13px;break-inside:avoid}
-.br b{display:block;margin-bottom:2px}
-.br div{white-space:pre-line;color:#4b5563}
-ul{margin:6px 0;padding-left:20px;font-size:14px}
-.note{background:#fffbeb;border:1px solid #fcd34d;color:#78350f;border-radius:8px;padding:6px 10px;font-size:13px;margin:6px 0}
-h2{font-size:17px;margin:22px 0 8px}
-table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
-th,td{border:1px solid #d1d5db;padding:6px 8px;text-align:left;vertical-align:top}
-th{background:#f3f4f6}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.card{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:8px 10px;font-size:13px;break-inside:avoid}
-.card .d{color:#4b5563}.card .w{color:#dc2626}
-.chk{display:block;width:100%;text-align:left;background:none;border:0;padding:3px 0;font-size:13px;color:#374151}
-.chk::before{content:"☐ ";font-size:15px}
-.chk.on{text-decoration:line-through;color:#9ca3af}
-.chk.on::before{content:"☑ ";color:var(--c)}
-.prog{height:8px;background:#e5e7eb;border-radius:9px;margin:6px 0 10px}
-.prog i{display:block;height:8px;background:#10b981;border-radius:9px;width:0}
-footer{font-size:12px;color:#9ca3af;border-top:1px solid #e5e7eb;margin-top:20px;padding-top:8px}
-@media(max-width:640px){.branches,.cards{grid-template-columns:1fr}}
-@media print{
-  @page{size:A4;margin:14mm}
-  body{background:#fff;font-size:12px}
-  .wrap{max-width:none;padding:0}
-  nav,.modes,.printbtn,.hint,.chev{display:none!important}
-  .panel{display:block!important;page-break-before:always}
-  .panel:first-of-type{page-break-before:auto}
-  .detail{display:block!important}
-  .step{break-inside:avoid;margin-bottom:2px}
-  .arrow{font-size:16px}
-  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .step-h{cursor:default}
+:root {
+  --c: #059669;
+  --soft: #ecfdf5;
+  --bd: #6ee7b7;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  background: #f3f4f6;
+  color: #1f2937;
+  line-height: 1.6;
+}
+.wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+h1 {
+  font-size: 20px;
+  margin: 0;
+}
+.sub {
+  font-size: 13px;
+  color: #6b7280;
+}
+nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 14px 0;
+}
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+.tab {
+  padding: 8px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+.tab.on {
+  color: #fff;
+  border-color: transparent;
+}
+.printbtn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #374151;
+  background: #374151;
+  color: #fff;
+  font-size: 14px;
+}
+.printbtn:hover {
+  background: #1f2937;
+}
+.panel { display: none; }
+.panel.on { display: block; }
+.banner {
+  border: 2px solid var(--bd);
+  background: var(--soft);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+}
+.banner b { font-size: 18px; }
+.modes {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.mode {
+  padding: 6px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 13px;
+}
+.mode.on {
+  background: var(--c);
+  color: #fff;
+  border-color: var(--c);
+}
+.pill {
+  display: table;
+  margin: 0 auto;
+  padding: 2px 16px;
+  border-radius: 99px;
+  background: var(--c);
+  color: #fff;
+  font-size: 13px;
+}
+.arrow {
+  text-align: center;
+  color: var(--c);
+  font-size: 22px;
+  line-height: 1.1;
+  margin: 2px 0;
+}
+.step-h {
+  width: 100%;
+  text-align: left;
+  border: 2px solid var(--bd);
+  background: var(--soft);
+  border-radius: 12px;
+  padding: 10px 12px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.num {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--c);
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.step-h .t { font-weight: 600; }
+.step-h .s { font-size: 13px; opacity: .8; }
+.detail {
+  display: none;
+  margin: 8px 0 0 18px;
+  padding-left: 14px;
+  border-left: 4px solid #e5e7eb;
+}
+.step.open .detail, .full .detail { display: block; }
+.branches {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.br {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  break-inside: avoid;
+}
+.br b { display: block; margin-bottom: 2px; }
+.br div { white-space: pre-line; color: #4b5563; }
+ul { margin: 6px 0; padding-left: 20px; font-size: 14px; }
+.note {
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  color: #78350f;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+  margin: 6px 0;
+}
+h2 { font-size: 17px; margin: 22px 0 8px; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 13px;
+}
+th, td {
+  border: 1px solid #d1d5db;
+  padding: 6px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+th { background: #f3f4f6; }
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  break-inside: avoid;
+}
+.card .d { color: #4b5563; }
+.card .w { color: #dc2626; }
+.chk {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  padding: 3px 0;
+  font-size: 13px;
+  color: #374151;
+  cursor: pointer;
+}
+.chk::before { content: "☐ "; font-size: 15px; }
+.chk.on { text-decoration: line-through; color: #9ca3af; }
+.chk.on::before { content: "☑ "; color: var(--c); }
+.prog {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 9px;
+  margin: 6px 0 10px;
+  overflow: hidden;
+}
+.prog i {
+  display: block;
+  height: 8px;
+  background: #10b981;
+  border-radius: 9px;
+  width: 0;
+  transition: width 0.3s ease;
+}
+footer {
+  font-size: 12px;
+  color: #9ca3af;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 20px;
+  padding-top: 8px;
+}
+@media(max-width: 640px) {
+  .branches, .cards { grid-template-columns: 1fr; }
+}
+@media print {
+  @page { size: A4; margin: 14mm; }
+  body { background: #fff; font-size: 12px; }
+  .wrap { max-width: none; padding: 0; }
+  nav, .modes, .printbtn, .hint, .chev { display: none !important; }
+  .panel { display: block !important; page-break-before: always; }
+  .panel:first-of-type { page-break-before: auto; }
+  .detail { display: block !important; }
+  .step { break-inside: avoid; margin-bottom: 2px; }
+  .arrow { font-size: 16px; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .step-h { cursor: default; }
 }
 </style>
 </head>
@@ -96,7 +285,7 @@ const ROLES = {
       '含上下文的完整截圖或螢幕錄影，避免只留裁切片段。',
       '在合法且可取得範圍內保存原始影音檔及檔名，不自行剪輯、覆寫。',
       '可供比對的真實影片、完整談話、原始公告或其他查證資料。',
-      '已受影響情形（遭誤認、被騷擾、財物損失、公共秩序受影響）的具體事證。'],
+      '已受影響情形（遭誤認、被騷擾、財物損失、公共秩序受影響）的具體事證.'],
       n:'只有截圖也可先報案；網址或原檔不足可再補充。不必自行取得發文者IP或真實身分，相關資料報案後由警察機關依法調查。'},
     {t:'停止擴散，立即檢舉',s:'不轉傳、依社群平台規範檢舉並留存編號',p:[
       '不以「幫忙查證」為由，持續公開轉傳完整疑似不實內容。',
@@ -110,16 +299,16 @@ const ROLES = {
       '是否已向其他機關報案、申請鑑識或要求平台處理。',
       '報案後索取受理案件證明或相關受理資訊，並保留受理單位聯絡方式。']},
     {t:'依案件性質辦理',s:'分流救濟：一般／社維法／選罷法／特別法',b:[
-      ['A. 一般爭議訊息','提供可查證資料，由警察協助向主管機關依權責判斷。只是評論、意見或尚無違法事證，不一定進入裁罰或刑事程序。可利用主管機關澄清、平台檢舉。'],
+      ['A. 一般爭議訊息','提供可查證資料，由警察機關協助向主管機關依權責判斷。只是評論、意見或尚無違法事證，不一定進入裁罰或刑事程序。可利用主管機關澄清、平台檢舉。'],
       ['B. 疑似違反社會秩序維護法','除指出內容不實外，盡可能說明對公共安寧的具體影響。單純使個人不悅、受到批評或引起網路爭論，不當然符合處罰要件，提供可查證資料，向警察機關報案。'],
-      ['C. 涉及選舉、罷免','分兩條路徑，可並行：\n①涉嫌犯罪 → 向警察或檢察機關告訴、告發、檢舉（不以先自費鑑識為條件），正式報案後，爰偵查不公開故不提供鑑識報告，由該管檢察官指揮偵辦。\n②自費鑑識 → 評估選罷法第51條之3向警察機關申請鑑識及侵害排除程序，交付申請人鑑識報告請求社群媒體下架。'],
+      ['C. 涉及選舉、罷免','分兩條路徑，可並行：\n①涉嫌犯罪 → 向警察或檢察機關告訴、告發、檢舉（不以先自費鑑識為條件），正式報案後，爰偵查不公開故不提供鑑識報告，由該管檢察署指揮偵辦。\n②自費鑑識 → 評估選罷法第51條之3向警察機關鑑識及侵害排除程序，交付申請人鑑識報告請求社群媒體下架。'],
       ['D. 涉及其他特別法','災害 → 災防主管機關；傳染病 → 衛生主管機關；其他專業領域洽各主管機關。涉犯罪可報案，行政違規由主管機關依法處理。']],
       p:[
       '【§51-3 對象】擬參選人、候選人、被罷免人及罷免案提議人之領銜人。',
       '【期間】選舉公告發布或罷免案宣告成立之日起，至投票日前一日止。',
       '【範圍】必須是刊播「本人」之深度偽造聲音、影像，非所有選舉相關文字或圖片。',
       '【程序】填具申請書表、繳費，向刑事警察局申請鑑識 → 經鑑識具深偽情事，檢具資料以書面向業者請求停止刊播、限制瀏覽、移除或下架，並副知主辦選舉委員會。',
-      '【時限】業者應於接獲法定請求之日起二日內依法辦理(違者處新臺幣20萬元以上1,000萬元以下罰鍰)。',
+      '【時限】業者應於接獲法定請求之日起二日內依法辦理（違者處新臺幣20萬元以上1,000萬元以下罰鍰）。',
       '競選團隊可協助備件及聯繫；代理申請須另確認授權規定，不因團隊身分即當然取得申請資格。'],
       n:'未符合上述特別程序的資格或期間，不代表無其他報案、平台檢舉或法律救濟管道。'},
     {t:'持續追蹤',s:'補充新證據、保存回覆、必要時向選委會反映',p:[
@@ -144,23 +333,24 @@ const ROLES = {
       '原始影音與可供比對資料的有無、來源及取得方式。',
       '當事人認為不實的具體理由、散布範圍及具體影響事證。',
       '已報案、檢舉、下架情形。',
-      '【建議】接收電子檔案時記錄交付人、時間、檔名及保存位置；勿以翻拍或截圖方式保留原檔並另製工作副本（光碟）附卷；不任意轉傳敏感影音或個資。']},
+      '【建議】接收電子檔案時記錄交付人、時間、檔名及保存位置；勿以翻拍或截圖方式，保留原檔並另製工作副本（光碟）附卷；不任意轉傳敏感影音或個資。']},
     {t:'初步分類並製作紀錄',s:'五類案件：應辦 vs. 不宜作法',b:[
       ['一般爭議訊息','✔ 記錄可查證事項、受影響對象及主管機關，依分工陳報。\n✘ 將批評、戲仿或未證實傳言一律認定犯罪。'],
       ['涉嫌社維法','✔ 蒐集謠言性、散布行為、公共安寧影響事證，送管轄分局偵查隊審認。\n✘ 僅憑「內容不實」或「有人報案」即決定移送。'],
-      ['涉嫌選罷法','✔ 記錄選舉種類、當事人身分、選區、內容及散布情形，陳報偵查隊。\n✘ 要求當事人先取得鑑識報告才受理。\n　有關選舉文宣之署函認定，依選罷法規定，倘為未署名或冒名之文宣，可洽屏東縣選舉委員會。'],
-      ['涉嫌其他特別法','✔ 保存證據，陳報並洽主管機關提供專業意見。\n✘ 自行替代主管機關作技術性認定。\n 散播有關疫情等不實訊息，依傳染病防治法第63條規定。由衛生單位審認。'],
+      ['涉嫌選罷法','✔ 記錄選舉種類、當事人身分、選區、內容及散布情形，陳報偵查隊。\n✘ 要求當事人先取得鑑識報告才受理。\n 有關選舉文宣之署函認定，依選罷法規定，倘為未署名或冒名之文宣，可洽屏東選舉委員會'],
+      ['涉嫌其他特別法','✔ 保存證據，陳報並洽主管機關提供專業意見。\n✘ 自行替代主管機關作技術性認定\n 散播有關疫情等不實訊息，依傳染病防治法第63條，由衛生單位審認。'],
       ['涉嫌刑法其他罪名','✔ 依各案程序辦理，查明是否為告訴乃論。\n✘ 因不符合假訊息專案定義即不處理。']]},
     {t:'選舉深偽影音加辦事項',s:'確認本人、詢問鑑識、告知權利、陳報',p:[
       '確認疑似遭偽造者是否為本人，並詢問當事人身分及相關選舉、罷免資訊。',
       '詢明是否已自費申請鑑識、鑑識機關、申請日期及結果。',
       '告知刑事報案與當事人自費申請鑑識是不同程序。',
       '協助提供自費申請、委任書。',
-      '陳報偵查隊送鑑識，不自行保證鑑識結果、完成時間或下架結果。']},
+      '陳報偵查隊送鑑識，不自行保證鑑識結果、完成時間或下架結果',
+      '告知當事人可先依平台規範檢舉，但平台檢舉不取代法定書面請求。']},
     {t:'陳報與案件交接',s:'依分局分工移交，以交接清單確認接收',p:[
       '受理紀錄、筆錄及初步分類理由。','網址與帳號清單、電子檔及採證紀錄。',
       '具體危害與急迫性評估。','告訴、告發或其他程序狀態。','已採取措施及聯繫紀錄。',
-      '已完成的權利告知、鑑識及平台檢舉情形。','待補資料、受理單位及聯繫方式。'],
+      '已完成的權利告知、鑑識及平台檢舉情形。','待補資料、受理單位聯繫方式。'],
       n:'以案件交接清單確認接收人及接收時間，避免僅在通訊群組貼文即視為完成交接。'},
     {t:'後續配合',s:'補充筆錄、不擅自發布、不亂保證',p:[
       '依交辦補充筆錄、證據及聯繫當事人。',
@@ -174,10 +364,10 @@ const ROLES = {
     {t:'立案、整併與管轄確認',s:'整併、分級、協請科偵、確認地檢署',p:[
       '整理各受理單位資料，確認有無重複案件及相關偵辦機關。',
       '區分一般、重大、特殊案件，依專案計畫及局內分工通報。',
-      '調閱平台用戶資訊、IP查調或數位採證時，協請本局科技偵查隊專責小隊偵辦；必要時報請刑事警察局支援。',
+      '調閱平台用戶資訊、IP查調或數位採證時，協請本科技偵查隊專責小隊偵辦；必要時報請刑事警察局支援。',
       '深偽假訊息妨害選舉：原則由各地檢署依轄區權責處理。',
       '涉國家元首、中央部會及機關首長、政黨黨主席等全國性重大案件，由本局刑事警察大隊報請刑事警察局共同偵辦。'],
-      n:'有管轄疑義時報請該管檢察官主任檢察官協調，不以此延誤證據保全。'},
+      n:'有管轄疑義時報請該管檢察署主任檢察官協調，不以此延誤證據保全。'},
     {t:'建立完整證據鏈',s:'區分製作者／發布者／轉傳者，蒐集有利不利事證',p:[
       '保全貼文、影音、帳號、網址、刊播時間及傳播脈絡。',
       '區分最初製作者、最初發布者、後續轉傳者及受委託刊播者，轉貼者不當然等同原始製作者。',
@@ -185,16 +375,17 @@ const ROLES = {
       '蒐集有利與不利事證：原始(剪輯前)版本、是否揭示合成、澄清及更正情形。',
       '涉平台資料保存、調取或通訊相關資料時，依適用法規及必要程序辦理。',
       '必要時及早循合法管道請求保全資料，避免下架、停權或保存期限屆滿而流失。',
-      '若遇涉及META等平臺之案件，建議以「刑事資訊入口網」之刑案偵查情資調閱平臺投單調閱、下架。']},
+      '【建議】若遇涉及META等平臺之案件，建議以「刑事資訊入口網」之刑案偵查情資調閱平臺投單調閱、下架。']},
     {t:'法律分流審認',s:'一般／社維法／選罷法／其他特別法',b:[
       ['A. 一般爭議訊息','先判斷是否為可驗證的事實陳述；評論、戲仿、意見或認知錯誤依語境審認，不因政治爭議升高為犯罪。無違法事證者提供澄清、平台申訴資訊並陳核。已進入檢察官指揮者應回報調查結果。'],
       ['B. 社維法§63①(5)','五項調查：①內容（何項不實、證明資料）②行為（何人、方式、範圍）③危害（具體事證，非抽象推測）④責任（主觀要件，非由不實推定）⑤競合受理→移送地方法院簡易庭。'],
       ['C. 選罷法','確認適用公職人員選舉罷免法，不混用條號。調查法定目的、行為、不實內容、危害及主觀要件；不得僅憑「選舉期間散布錯誤資訊」認定成罪。深偽鑑識只處理技術問題，不能單獨證明犯意與行為人。刑事偵查、侵害排除、檢察機關通報分別建檔追蹤。'],
-      ['D. 其他特別法','辨明法規與主管機關（災防法、傳染病防治法等）並請其提供專業意見。涉刑罰→依構成要件偵辦、必要時報請檢察官指揮；僅行政罰→移送主管機關並保存回覆。專業意見不取代犯意、行為人、散布行為調查。依特別法優於普通法及競合規定處理。']},
+      ['D. 其他特別法','辨明法規與主管機關（災防法、傳染病防治法等）並請其提供專業意見。涉刑罰→依構成要件偵辦、必要時報請檢察官指揮；僅行政罰→移送主管機關並保存回覆。專業意見不取代犯意、行為人、散布行為調查。依特別法優於普通法及競合規定處理。']}
+    ]},
     {t:'深偽影音鑑識',s:'確認自費鑑識、送調查局或刑事局',p:[
       '先確認當事人是否已自費申請鑑識，並調取可取得的報告及送驗資料。',
-      '保存原始檔案，同步送由科偵隊陳報刑事局鑑識。',
-      '可送鑑識機關：法務部調查局；內政部警政署刑事警察局。',
+      '保存原始檔案，同步送由科偵對陳報刑事局鑑識。',
+      '可送鑑識機關：法務部調查局資通安全處資安鑑識科；內政部警政署刑事警察局科技研發科。',
       '實際送驗項目、格式及窗口，依受理機關現行規定辦理。',
       '送驗時附具原始檔案、來源、待鑑事項及比對資料；資料不足者具體註明。',
       '報請指揮、移送或報告時，未檢附鑑識報告者應主動說明原因及辦理情形。',
@@ -202,12 +393,13 @@ const ROLES = {
     {t:'分軌辦理平台處置與侵害排除',s:'四軌道並行但不可混淆',b:[
       ['軌道一：各該平台規範檢舉','告知可依平台規範檢舉；保存檢舉編號及結果；不將平台自行處理承諾誤述為選罷法法定二日義務。'],
       ['軌道二：選罷法§51-3法定請求','確認資格、期間、本人深偽影音及警察機關鑑識資料；協助書面請求、送達、副知選委會。二日自業者「接獲請求日」起算，非報案日。業者應留存資料六個月，不因此延後合法證據保全。'],
-      ['軌道三：檢察機關通報下架','Google／YouTube：各地檢署專責人員利用政府通報機制。Meta：各地檢署填表送臺高檢單一窗口。依檢察官指示得請刑事局、調查局協助並回報。其他平台依個案處理，不保證有政府下架管道。通報≠已下架，須追蹤。'],
-      ['軌道四：違法網站停止解析或投單調閱、下架','僅於符合程序、函示及適用範圍時辦理；九類訊息之停止解析通報由刑事局統一窗口（完整範圍另核原函）。TWNIC針對網站，無法僅封鎖特定貼文，不適用移除Google／YouTube／Meta單一內容。檢察官另得聲請域名扣押。']]},
+      ['軌道三：檢察機關通報下架或投單調閱、下架','Google／YouTube：各地檢署專責人員利用政府通報機制。Meta：各地檢署填表送臺高檢單一窗口。依檢察官指示得請刑事局、調查局協助並回報。其他平台依個案處理，不保證有政府下架管道。通報≠已下架，須追蹤。'],
+      ['軌道四：違法網站停止解析','僅於符合程序、函示及適用範圍時辦理；九類訊息之停止解析通報由刑事局統一窗口（完整範圍另核原函）。TWNIC針對網站，無法僅封鎖特定貼文，不適用移除Google／YouTube／Meta單一內容。檢察官另得聲請域名扣押。']}
+    ]},
     {t:'溯源、移送與後續處理',s:'依案件性質移送、諮詢或陳核',p:[
       '依法追查原始製作、上傳、委託及散布情形。',
       '涉刑事犯罪：彙整有利、不利事證，依法移送或報告檢察官。',
-      '涉社維法：依審認結果辦理移送。',
+      '涉社維法：依審認結果辦理移送程序。',
       '涉行政違規：移交主管機關並追蹤收受情形。',
       '無違法事證：敘明理由陳核或回報，不以「查無發文者」代替全部法律判斷。']},
     {t:'澄清',s:'二日提報管制 ≠ 二日結案',p:[
@@ -280,13 +472,17 @@ main.innerHTML=Object.entries(ROLES).map(([k,r])=>roleHTML(k,r)).join('')+common
 
 const tabs=[...Object.entries(ROLES).map(([k,r])=>[k,r.label,r.color]),['common','共同資料','#374151']];
 nav.innerHTML=tabs.map(t=>`<button class="tab" data-k="${t[0]}" data-c="${t[2]}">${t[1]}</button>`).join('');
+
 function show(k){
   document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id==='p-'+k));
   document.querySelectorAll('.tab').forEach(b=>{
-    const on=b.dataset.k===k;b.classList.toggle('on',on);
+    const on=b.dataset.k===k;
+    b.classList.toggle('on',on);
     b.style.background=on?b.dataset.c:'#fff';
+    b.style.color=on?'#fff':'#1f2937';
   });
 }
+
 nav.addEventListener('click',e=>{const b=e.target.closest('.tab');if(b)show(b.dataset.k)});
 main.addEventListener('click',e=>{
   const sh=e.target.closest('.step-h');
@@ -301,11 +497,13 @@ main.addEventListener('click',e=>{
   const c=e.target.closest('.chk');
   if(c){c.classList.toggle('on');upd()}
 });
+
 function upd(){
   const all=document.querySelectorAll('.chk'),on=document.querySelectorAll('.chk.on');
   $('#cnt').textContent=`（${on.length} / ${all.length}）`;
   $('#bar').style.width=(on.length/all.length*100)+'%';
 }
+
 $('#reset').onclick=()=>{document.querySelectorAll('.chk.on').forEach(x=>x.classList.remove('on'));upd()};
 upd();show('citizen');
 </script>
